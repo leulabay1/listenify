@@ -1,10 +1,14 @@
 import React from 'react';
+import styled from "@emotion/styled";
+
 import './App.css';
 import musicIcon from "./assets/music-icon.png";
 import bookmarkIcon from "./assets/bookmark-icon.png";
 import searchIcon from "./assets/search-icon.png";
 import likedIcon from "./assets/like-icon.png";
 import homeIcon from "./assets/home-icon.png";
+import { css } from "@emotion/css";
+
 
 function App() {
 
@@ -25,61 +29,27 @@ function App() {
         "__v":0
     }
     const arrayRange = [1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 34, 45, 35, 234, 43, 64, 75]
-    // const arrayRange = [1, 2]
 
     const iconArray = [musicIcon, bookmarkIcon, searchIcon, likedIcon, homeIcon];
 
   return (
-          <section className="body-container">
-              <article className="sidebar">
-                  {
-                      iconArray.map((image)=>{
-                          return (
-                              <span className="tab-icon-container" key={image}>
-                                  <img className="tab-icon" src={image} alt="tab icons"/>
-                              </span>
-                          )
-                      })
-                  }
-              </article>
-              <div className="big-container">
-                  <article className="first-container">
-                      {
-                          arrayRange.map((num)=>{
 
-                              return (
-                                  <div key={num} className="music-card">
-                                      <img className="music-img" src={music.image_url} alt="music image"/>
+    <div
+      className={
+        css`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #1a1a1a;
+            color: white;
+        `
+      }
+    >
 
-                                      <div className="music-description">
-                                          <span className="music-name-container">
-                                              <h2>
-                                                  {music.name}
-                                              </h2>
-                                              <h3>
-                                                  {music.artist.name}
-                                              </h3>
-                                          </span>
+    </div>
 
-                                          <h2>
-                                              {music.release_date}
-                                          </h2>
-
-                                          <h2>
-                                              {music.duration_ms}
-                                          </h2>
-                                      </div>
-
-                                  </div>
-                              )
-                          })
-                      }
-                  </article>
-                  <article className="second-container">
-
-                  </article>
-              </div>
-          </section>
   );
 }
 
