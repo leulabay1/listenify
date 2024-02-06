@@ -7,7 +7,7 @@ import {
   updateMusicFailure, updateMusicSuccess
 } from "../features/music-slice";
 
-const url = "https://localhost:3000/musics";
+const url = "http://localhost:3001/musics";
 
 function* getMusics() {
   try {
@@ -16,6 +16,7 @@ function* getMusics() {
     yield put(getMusicsSuccess(musics));
 
   } catch (e) {
+    console.log("error", e)
     yield put(getMusicsFailure());
   }
 }
@@ -78,3 +79,5 @@ function* musicSaga() {
   yield takeEvery('music/updateMusicRequest', updateMusic);
   yield takeEvery('music/deleteMusicRequest', deleteMusic);
 }
+
+export default musicSaga

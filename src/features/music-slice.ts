@@ -22,6 +22,10 @@ interface initialState {
     data: Music;
     error: boolean;
   };
+  currentMusicState: {
+    data: Music | null;
+  };
+
 }
 
 const initialState: initialState = {
@@ -44,6 +48,9 @@ const initialState: initialState = {
     loading: false,
     data: {} as Music,
     error: false,
+  },
+  currentMusicState: {
+    data: null,
   },
 };
 
@@ -73,7 +80,7 @@ const musicSlice = createSlice({
       state.addMusicState.loading = false;
       state.addMusicState.error = true;
     },
-    deleteMusicRequest: (state) => {
+    deleteMusicRequest: (state, action) => {
       state.deleteMusicState.loading = true;
     },
     deleteMusicSuccess: (state, action) => {
@@ -95,6 +102,9 @@ const musicSlice = createSlice({
       state.updateMusicState.loading = false;
       state.updateMusicState.error = true;
     },
+    setCurrentMusic: (state, action) => {
+      state.currentMusicState.data = action.payload;
+    }
   },
 });
 
@@ -112,6 +122,7 @@ export const {
   updateMusicRequest,
   updateMusicSuccess,
   updateMusicFailure,
+  setCurrentMusic,
 } = musicSlice.actions;
 
 export default musicSlice.reducer;
