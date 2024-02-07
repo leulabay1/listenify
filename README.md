@@ -48,19 +48,12 @@ Listnify is a sleek and user-friendly React application designed to help music e
 
 - React
 - Emotion CSS
-- Other dependencies (list them here)
-
-## Contributing
-
-Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md).
+- Toast
+- Redux-toolkit
+- Redux-saga
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Acknowledgments
-
-- Special thanks to [Name] for inspiration and guidance.
-- Shoutout to the React and Emotion CSS communities.
-
-Happy listening with Listnify! 🎵
+Happy time with Listnify! 🎵
