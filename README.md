@@ -15,7 +15,7 @@ Listnify is a sleek and user-friendly React application designed to help music e
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/listnify.git
+   git clone https://github.com/leulabay1/listnify.git
    ```
 
 2. Install dependencies:
