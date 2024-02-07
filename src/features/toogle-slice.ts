@@ -59,7 +59,7 @@ const toggleSlice = createSlice({
       state.editFormToggle.editToggle = false;
     },
     setDelete(state, action){
-      state.deleteToggle.deleteData = action.payload.musicData;
+      state.deleteToggle.deleteData = action.payload;
       state.deleteToggle.deleteToggle = true;
     },
     turnOffDelete(state){

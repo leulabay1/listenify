@@ -7,21 +7,23 @@ import MusicDetail from "./components/music-detail";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Layout from "./components/layout";
 import AddMusic from "./components/add-music";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
   return (
-
-    <Router>
-      <Routes>
-        <Route element={<Layout />} path={"/"} >
-          <Route index element={<MusicList />}/>
-          <Route element={<AddMusic />} path={"add"} />
-        </Route>
-      </Routes>
-    </Router>
-
+    <>
+      <ToastContainer />
+      <Router>
+        <Routes>
+          <Route element={<Layout />} path={"/"} >
+            <Route index element={<MusicList />}/>
+            <Route element={<AddMusic />} path={"add"} />
+          </Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 

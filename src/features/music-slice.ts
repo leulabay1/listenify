@@ -69,7 +69,7 @@ const musicSlice = createSlice({
       state.getMusicsState.loading = false;
       state.getMusicsState.error = true;
     },
-    addMusicRequest: (state) => {
+    addMusicRequest: (state, action) => {
       state.addMusicState.loading = true;
     },
     addMusicSuccess: (state, action) => {
@@ -91,7 +91,7 @@ const musicSlice = createSlice({
       state.deleteMusicState.loading = false;
       state.deleteMusicState.error = true;
     },
-    updateMusicRequest: (state) => {
+    updateMusicRequest: (state, action) => {
       state.updateMusicState.loading = true;
     },
     updateMusicSuccess: (state, action) => {

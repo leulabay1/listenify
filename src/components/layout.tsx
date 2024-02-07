@@ -1,11 +1,9 @@
 import {css} from "@emotion/css";
 import Sidebar from "./sidebar";
-import MusicList from "./music-list";
 import MusicDetail from "./music-detail";
 import React from "react";
 import {Outlet} from "react-router-dom";
 import EditForm from "./edit-form";
-import {useAppSelector} from "../hooks/hooks";
 import DeleteDialogBox from "./DeleteDialogBox";
 
 

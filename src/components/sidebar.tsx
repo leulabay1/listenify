@@ -1,13 +1,44 @@
 import {css} from "@emotion/css";
-import musicIcon from "../assets/music-icon.png";
-import bookmarkIcon from "../assets/bookmark-icon.png";
-import searchIcon from "../assets/search-icon.png";
+import { MdAddCircleOutline } from "react-icons/md";
+import { FaMusic } from "react-icons/fa6"
+import { FaSearch } from "react-icons/fa";
 
 import {Link} from "react-router-dom"
 
 const Sidebar = () => {
 
-  const linkInfo:{icon:string, link:string}[] = [{icon: musicIcon, link:""}, {icon: searchIcon, link:"search"}, {icon: bookmarkIcon, link: "add"}];
+  const linkInfo:{icon:any, link:string}[] = [
+    {icon: <FaMusic className={
+      css`
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        fill: #a9a8a8;
+        padding: 10px;
+      `
+    } />,
+      link:""},
+    {icon: <MdAddCircleOutline className={
+      css`
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        padding: 10px;
+        fill: #a9a8a8;
+      `
+    } />,
+      link:"add"},
+    {icon: <FaSearch className={
+      css`
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        fill: #a9a8a8;
+        padding: 10px;
+      `
+    } />,
+      link: ""}
+  ];
 
   return (
     <div
@@ -19,8 +50,10 @@ const Sidebar = () => {
           justify-content: center;
           width: 90%;
           height: 80%;
+          padding: 10px;
           background-color: #2c2c2c;
           border-radius: 10px;
+          gap: 10px;
           background: var(--page-background);
         `
       }
@@ -31,28 +64,28 @@ const Sidebar = () => {
 
           <div
             key={index}
+            className={
+              css`
+                border-radius: 10px;
+                background: var(--card-background);
+                &:hover{
+                  background: var(--card-hover);
+                  
+                }
+              `
+            }
           >
             <Link
               to={iconInfo.link}
             >
-              <img
-                src={iconInfo.icon}
-                alt="icon"
-                className={
-                  css`
-                width: 40px;
-                height: 40px;
-                border-radius: 10px;
-                padding: 10px;
-              `
-                }
-              />
+              {iconInfo.icon}
             </Link>
 
           </div>
 
         ))
       }
+
     </div>
   )
 }

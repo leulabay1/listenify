@@ -3,7 +3,8 @@ import React, {ChangeEvent, useEffect, useState} from "react";
 import styled from "@emotion/styled";
 import {css} from "@emotion/css";
 import {useAppDispatch, useAppSelector} from "../hooks/hooks";
-import {setEdit, turnOffEdit} from "../features/toogle-slice";
+import { turnOffEdit} from "../features/toogle-slice";
+import { updateMusicRequest} from "../features/music-slice";
 
 const EditForm = ()=>{
 
@@ -36,17 +37,6 @@ const EditForm = ()=>{
       }
     }));
   };
-
-  let Input = styled.input`
-    width: 90%;
-    height: 34px;
-    padding: 4px 10px;
-    color: white;
-    border-radius: 10px;
-    background: transparent;
-    border: white solid 1px;
-  `
-
 
   if (formData) {
 
@@ -227,7 +217,7 @@ const EditForm = ()=>{
             <h2
               className={
                 css`
-            `
+                `
               }
             >
               Artist Detail
@@ -296,8 +286,36 @@ const EditForm = ()=>{
               }
               type="text" name="followers" value={formData.artist.followers} onChange={handleArtistChange} />
           </div>
-        </div>
 
+          <div className={
+            css`
+              margin-top: 30px;
+              place-self: center right;
+            `
+          }>
+            <button
+              onClick={()=>dispatch(updateMusicRequest(formData))}
+              className={
+                css`
+                  outline: 0;
+                  border: 0;
+                  padding: 10px 20px;
+                  border-radius: 5px;
+                  color: black;
+                  font-size: 1.2rem;
+                  background: #cbcaca;
+                  cursor: pointer;
+
+                  &:hover {
+                    background: var(--popup-hover);
+                  }
+                `
+              }>
+              Submit
+            </button>
+          </div>
+
+        </div>
 
       </div>
 

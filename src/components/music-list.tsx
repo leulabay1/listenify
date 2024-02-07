@@ -2,7 +2,7 @@ import {css} from "@emotion/css";
 import {useAppDispatch, useAppSelector} from "../hooks/hooks";
 import {Music} from "../types/music";
 import {useEffect} from "react";
-import {getMusicsRequest, getMusicsSuccess, setCurrentMusic} from "../features/music-slice";
+import {getMusicsRequest, setCurrentMusic} from "../features/music-slice";
 import {setDelete, setEdit, setEditDeletePopup} from "../features/toogle-slice";
 
 const MusicList = () => {
@@ -85,7 +85,7 @@ const MusicList = () => {
             padding: 0 10px;
             position: sticky;
             top: 10px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
           `
         }
       >
@@ -124,6 +124,7 @@ const MusicList = () => {
                   width: 90%;
                   margin: 10px;
                   padding: 0 10px;
+                  cursor: pointer;
                   &:hover{
                     background: var(--card-hover);
                   }

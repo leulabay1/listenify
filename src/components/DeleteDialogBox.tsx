@@ -1,16 +1,14 @@
-import {Music} from "../types/music";
-import React, {ChangeEvent, useEffect, useState} from "react";
-import styled from "@emotion/styled";
+import React from "react";
 import {css} from "@emotion/css";
 import {useAppDispatch, useAppSelector} from "../hooks/hooks";
-import {setEdit, turnOffDelete, turnOffEdit} from "../features/toogle-slice";
+import {turnOffDelete} from "../features/toogle-slice";
 import {deleteMusicRequest} from "../features/music-slice";
 
 const DeleteDialogBox = ()=>{
 
   const dispatch = useAppDispatch();
   const {deleteData, deleteToggle} = useAppSelector((state)=> state.toggle.deleteToggle);
-  const {loading, data, error} = useAppSelector((state)=> state.music.deleteMusicState);
+  const {loading, error} = useAppSelector((state)=> state.music.deleteMusicState);
 
   return (
     <div
@@ -29,8 +27,7 @@ const DeleteDialogBox = ()=>{
       <div
         className={
           css`
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
             gap: 10px;
             width: 100%;
             max-width: 700px;
@@ -39,6 +36,7 @@ const DeleteDialogBox = ()=>{
             margin-top: 50px;
             background: var(--card-background);
             position: relative;
+            flex-direction: column;
           `
         }
       >
@@ -111,7 +109,8 @@ const DeleteDialogBox = ()=>{
             css`
               display: flex;
               align-items: center;
-              justify-content: center;
+              justify-content: space-around;
+              
             `
           }
           >
@@ -123,8 +122,14 @@ const DeleteDialogBox = ()=>{
                 border: 0;
                 padding: 10px 20px;
                 border-radius: 5px;
-                background: var(--popup-hover);
-                margin-right: 10px;
+                color: black;
+                font-size: 1.2rem;
+                background: #cbcaca;
+                cursor: pointer;
+
+                &:hover {
+                  background: var(--popup-hover);
+                }
               `
             }>
             No
@@ -133,12 +138,18 @@ const DeleteDialogBox = ()=>{
             onClick={()=>dispatch(deleteMusicRequest(deleteData._id))}
             className={
               css`
-                outline: 0;
-                border: 0;
-                padding: 10px 20px;
-                border-radius: 5px;
+              outline: 0;
+              border: 0;
+              padding: 10px 20px;
+              border-radius: 5px;
+              color: black;
+              font-size: 1.2rem;
+              background: #cbcaca;
+              cursor: pointer;
+              &:hover {
                 background: var(--popup-hover);
-              `
+              }
+            `
             }>
             Yes</button>
         </div>
